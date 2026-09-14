@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* ── Leaflet tile-layer fix ──────────────────────────────────────────────────
+   Tailwind v4 preflight sets  img { display: block; max-width: 100% }
+   which collapses Leaflet's absolutely-positioned tile <img> elements.
+   These overrides restore the expected Leaflet behaviour.
+   ─────────────────────────────────────────────────────────────────────────── */
+.leaflet-container img.leaflet-tile {
+  max-width: none !important;
+}
+.leaflet-container img {
+  max-width: none;
+}
+.leaflet-pane img,
+.leaflet-tile-pane img {
+  max-width: none !important;
+  width: auto;
+  display: inline;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
